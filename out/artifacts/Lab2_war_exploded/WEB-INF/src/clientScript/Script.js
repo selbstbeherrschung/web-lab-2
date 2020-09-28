@@ -52,9 +52,9 @@ function setX(int) {    //Установка значения X получаем
     document.getElementById("vX").setAttribute("value", int);
     var xNames = document.getElementsByName("xChoose");
     for (let i = 0; i < xNames.length; i++) {
-        xNames[i].setAttribute("class", "inputNe");
+        xNames[i].setAttribute("class", "btn btn-secondary");
     }
-    xNames[int + 3].setAttribute("class", "inputOk");
+    xNames[int + 3].setAttribute("class", "btn btn-success");
     checkSetX = true;
 }
 
@@ -121,7 +121,7 @@ const clickAnswer = function (event) {
 
 //здесь мы не даём пользователю ввести в поле для Y ввести не те данные
 function validateY() {
-    this.value = this.value.replace(/[^\d\.\-]/g, ""); //разрешаем ввод только цифр 0-9, запятой и минуса
+    this.value = this.value.replace(/[^\d.\-]/g, ""); //разрешаем ввод только цифр 0-9, запятой и минуса
 
     if(this.value.lastIndexOf("-")> 0) { //если пользователь вводит тире (минус) не самым первым символом...
         this.value = this.value.substr(0, this.value.lastIndexOf("-"));//то удаляем этот минус
@@ -163,17 +163,17 @@ function validateY() {
 
 //здесь мы не даём пользователю ввести в поле для R ввести не те данные
 function validateR() {
-    this.value = this.value.replace(/[^\d\,]/g, ""); //разрешаем ввод только цифр 0-9 и запятой
+    this.value = this.value.replace(/[^\d/.]/g, ""); //разрешаем ввод только цифр 0-9 и запятой
 
-    if(this.value[0]!= "-") { //если число положительно (первым введён не минус, а цифра)...
+    if(this.value[0]!== "-") { //если число положительно (первым введён не минус, а цифра)...
         if(this.value[0]== "." || this.value[0]== "0" || this.value[0]== "1" || this.value[0]== "6" || this.value[0]== "7" || this.value[0]== "8" || this.value[0]== "9"){
             this.value = this.value.substr(0, 0); //то эта цифра должна быть от 2 до 5
         }
-        if(this.value[0]== "5" && this.value[1]!= ""){
+        if(this.value[0]=== "5" && this.value[1]!== ""){
             this.value = this.value.substr(0, 1);
         }
 
-        if(this.value.length>1 && this.value[1]!=".") this.value=this.value[0]+"."+this.value[1]; //если второй символ введён и он не запятая, то вставляем запятую между первым и вторым символом
+        if(this.value.length>1 && this.value[1]!==".") this.value=this.value[0]+"."+this.value[1]; //если второй символ введён и он не запятая, то вставляем запятую между первым и вторым символом
         if(this.value.length>7) this.value = this.value.substr(0, 7); //если количество символов равно 7 (5 знаков после запятой), не даём вводить больше
     }
 

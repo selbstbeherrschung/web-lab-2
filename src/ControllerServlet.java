@@ -1,5 +1,7 @@
+import Resources.LIstOfShots;
 import Resources.SessionShotsBean;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,6 +14,9 @@ import java.io.IOException;
 
 @WebServlet("/control")
 public class ControllerServlet extends HttpServlet {
+
+    @Inject
+    private LIstOfShots sessionShotsBean = new SessionShotsBean();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

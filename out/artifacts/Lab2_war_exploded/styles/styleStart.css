@@ -2,50 +2,11 @@ body {
     font-family: message-box;
 }
 
-input {
-    font: caption;
-    font-size: 12px;
-}
-
 header {
     font-family: sans-serif;
     font-size: 20px;
     color: darkblue;
     text-align: center;
-}
-
-table {
-    font-size: 12px;
-}
-
-th {
-    font-size: 16px;
-    border-style: solid;
-    background: #D8E6F3;
-}
-
-/*Реакция на выбор клетки
-Для таблицы результатов и элементов ввода*/
-.chooseable:hover {
-    background-color: lightblue;
-}
-
-/*Обрисовка подписей и элементов radio-button*/
-.cell-radio-text-class {
-    width: 25px;
-    text-align: center;
-}
-
-.cell-radio-class {
-    width: 25px;
-    margin-left: 4px;
-}
-
-/*Кнопки выбора*/
-.cell-button-class {
-    width: 35px;
-    margin-left: 1px;
-    background-color: white;
 }
 
 /*Классы ячеек колонок таблицы результатов*/
@@ -120,29 +81,6 @@ th {
 /*Первая ячейка шапки таблицы результата*/
 #x-id {
     width: 6%;
-}
-
-/*Кнопка отправки*/
-.send {
-    margin-left: 50px;
-    width: max-content;
-}
-
-/*Элементы ввода в зависимости от верности введённых данных*/
-.inputOk {
-    width: 35px;
-    margin-left: 1px;
-    background-color: green;
-}
-
-.inputNe {
-    width: 35px;
-    margin-left: 1px;
-    background-color: white;
-}
-
-.inputWar {
-    background-color: red;
 }
 
 /*Таблица результатов*/

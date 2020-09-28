@@ -1,4 +1,5 @@
 <%@ page import="Resources.SessionShotsBean" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en">
@@ -7,24 +8,46 @@
     <title>
         Lab 2
     </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="resources/icon.png">
     <script src="clientScript/Script.js"></script>
     <link href="styles/styleStart.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header>
-    <div>
-        <p>Rogachev Kirill Olegovich P3230 2635</p>
-        <p>Negrash Andrey Vladimirovich P3230 2635</p>
+    <div class="pos-f-t">
+        <div class="collapse show" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Rogachev Kirill Olegovich - P3230<br>Negrash Andrey Vladimirovich - P3230</h5>
+                <span class="text-muted">Variant 2635</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                    aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
     </div>
 </header>
 
-<div>
+<div style="padding:5%">
     <form method="post" onsubmit="checkText(this);" action="/Lab2/control">
-        <table id="page-table-F" border="1">
+        <table id="page-table-F">
             <tr>
-                <td colspan="13">
+                <td colspan="14">
                     <div>
                         <svg id="image-coordinates">
                             <rect width="300" height="300" fill="rgb(255,255,255)" stroke-width="1"
@@ -63,8 +86,8 @@
                                       stroke-width="1" stroke="rgb(0,0,0)"/>
 
                             <%
-                                SessionShotsBean shots = (SessionShotsBean) request.getSession().getAttribute("shots");
-                                if(shots != null){
+                                SessionShotsBean shots = (SessionShotsBean)request.getSession().getAttribute("shots");
+                                if (shots != null) {
                                     out.print(shots.printAll());
                                 }
                             %>
@@ -76,12 +99,12 @@
             </tr>
 
             <tr id="buttonRow">
-                <td colspan="4">Change R</td>
+                <td colspan="5" width="auto"><p width="90px">Change X</p></td>
                 <%
                     for (int i = -3; i < 6; i++) {
                         out.print(
                                 "<td class=\"chooseable\">" +
-                                        "<input class=\"cell-button-class\" type=\"button\" name=\"xChoose\"" +
+                                        "<input class=\"btn btn-secondary\" type=\"button\" name=\"xChoose\"" +
                                         "onclick=\"setX(" +
                                         i +
                                         ");\" value=\"" +
@@ -92,34 +115,32 @@
             </tr>
 
             <tr>
-                <td colspan="6">Change Y [-5;3]</td>
-                <td class="chooseable" colspan="7"><input id="text_input_Y" type="text" name="answerY"
-                                                          value="0">
+                <td colspan="7">Change Y [-5;3]</td>
+                <td class="chooseable" colspan="7"><input class="form-control" id="text_input_Y" type="text"
+                                                          name="answerY" value="0">
                 </td>
             </tr>
 
             <tr>
-                <td colspan="6">Change R [2;5]</td>
-                <td class="chooseable" colspan="7"><input id="text_input_R" type="text" name="answerR"
-                                                          value="2">
+                <td colspan="7">Change R [2;5]</td>
+                <td class="chooseable" colspan="7"><input class="form-control" id="text_input_R" type="text"
+                                                          name="answerR" value="2">
                 </td>
             </tr>
 
             <tr>
-                <td colspan="13">
-                    <input id="submitButton" class="send" type="submit" value="Send">
+                <td colspan="14">
+                    <input id="submitButton" class="btn btn-block btn-dark" type="submit" value="Send">
                     <input id="vX" type="hidden" name="answerX" value="0">
                 </td>
             </tr>
         </table>
     </form>
 </div>
-
-<footer>
-    <div id="link">
-        <a href="https://github.com/selbstbeherrschung/web-lab-1">GitHub</a>
-    </div>
-</footer>
+<div class="footer d-flex justify-content-end">
+    <a class="btn btn-dark rounded-pill" href="https://github.com/selbstbeherrschung/web-lab-1"><img
+            src="https://nav-com.ru/img/git.png" width="50px" alt="GitHub"></a>
+</div>
 
 </body>
 </HTML>

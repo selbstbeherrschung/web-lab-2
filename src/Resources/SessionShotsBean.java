@@ -1,9 +1,13 @@
 package Resources;
 
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class SessionShotsBean implements Serializable {
+
+@Stateful
+public class SessionShotsBean implements Serializable, LIstOfShots {
 
     private static final long serialVersionUID = 2041275512219239990L;
 
@@ -67,6 +71,11 @@ public class SessionShotsBean implements Serializable {
         }).forEachOrdered(str -> strBuild.append(str));
 
         return strBuild.toString();
+    }
+
+    @Remove
+    public void remove(){
+        shots=null;
     }
 
 }

@@ -2,11 +2,6 @@ body {
     font-family: message-box;
 }
 
-input {
-    font: caption;
-    font-size: 12px;
-}
-
 header {
     font-family: sans-serif;
     font-size: 20px;
@@ -25,12 +20,12 @@ th {
 }
 
 /*Реакция на выбор клетки
-Для таблицы результатов и элементов ввода*/
+Для таблицы результатов и элементов ввода
 .chooseable:hover {
     background-color: lightblue;
 }
 
-/*Обрисовка подписей и элементов radio-button*/
+/*Обрисовка подписей и элементов radio-button
 .cell-radio-text-class {
     width: 25px;
     text-align: center;
@@ -41,7 +36,7 @@ th {
     margin-left: 4px;
 }
 
-/*Кнопки выбора*/
+/*Кнопки выбора
 .cell-button-class {
     width: 35px;
     margin-left: 1px;
@@ -91,7 +86,7 @@ th {
     border-collapse: collapse;
 }
 
-#page-table-T {
+.page-table-T {
     width: 400px;
     /*height: 300px;*/
     border-spacing: 2px;
@@ -152,11 +147,6 @@ th {
     background-color: lightcyan;
     overflow-y: scroll;
     overflow-x: hidden;
-}
-
-/*Ссылка на гит*/
-#link {
-    text-align: center;
 }
 
 /*Скроллбар псевдоэлементом

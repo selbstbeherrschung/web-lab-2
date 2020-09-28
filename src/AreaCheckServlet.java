@@ -1,17 +1,22 @@
+import Resources.LIstOfShots;
 import Resources.SessionShotsBean;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 @WebServlet("/check")
 public class AreaCheckServlet extends HttpServlet {
+
+    @Inject
+    LIstOfShots sessionShotsBean;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,25 +31,36 @@ public class AreaCheckServlet extends HttpServlet {
 
         boolean res = check(x, y, r);
 
-        SessionShotsBean shots = (SessionShotsBean) request.getSession().getAttribute("shots");
-
-
-
         long time = System.nanoTime() - m;
 
-        String str = x + " " + y + " " + r + " " + res + " " + start + " " + ((time) / 1000);
+        String str = cut(x) + " " + cut(y) + " " + cut(r) + " " + res + " " + start + " " + ((time) / 1000);
 
-        shots.addFirst(str);
+        if(sessionShotsBean==null){
+            sessionShotsBean = new SessionShotsBean();
+        }
+
+        sessionShotsBean.addFirst(str);
+
+        request.setAttribute("shots", sessionShotsBean);
+        request.getSession().setAttribute("shots", sessionShotsBean);
 
         getServletContext().getRequestDispatcher("/pages/result.jsp").forward(request, response);
     }
 
-    private String cut(double num){
+    private String cut(double num) {
         String result;
-        if(num >= 0){
-            result = (String.valueOf(num)).substring(0,7);
-        }else {
-            result = (String.valueOf(num)).substring(0,8);
+        if (num >= 0) {
+            if (String.valueOf(num).length() > 7) {
+                result = (String.valueOf(num)).substring(0, 6);
+            } else {
+                result = String.valueOf(num);
+            }
+        } else {
+            if (String.valueOf(num).length() > 8) {
+                result = (String.valueOf(num)).substring(0, 7);
+            } else {
+                result = String.valueOf(num);
+            }
         }
         return result;
     }
