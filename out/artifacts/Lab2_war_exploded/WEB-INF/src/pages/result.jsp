@@ -1,4 +1,5 @@
 <%@ page import="Resources.SessionShotsBean" %>
+<%@ page import="Resources.LIstOfShots" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +50,8 @@
             <tbody>
 
             <%
-                SessionShotsBean shots = (SessionShotsBean)request.getAttribute("shots");
+
+                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
                 if(shots != null){
                     out.print(shots.writeAll());
                 }

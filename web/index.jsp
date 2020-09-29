@@ -1,4 +1,5 @@
 <%@ page import="Resources.SessionShotsBean" %>
+<%@ page import="Resources.LIstOfShots" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -86,7 +87,7 @@
                                       stroke-width="1" stroke="rgb(0,0,0)"/>
 
                             <%
-                                SessionShotsBean shots = (SessionShotsBean)request.getSession().getAttribute("shots");
+                                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
                                 if (shots != null) {
                                     out.print(shots.printAll());
                                 }

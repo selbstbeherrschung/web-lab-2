@@ -66,10 +66,11 @@ header {
     margin-left: auto;
     width: 300px;
     height:300px;
+    opacity: 0.5;
 }
 
 #image-coordinates:hover {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 /*Ввод текста*/

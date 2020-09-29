@@ -2,6 +2,7 @@ package Resources;
 
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import java.io.Serializable;
 import java.util.LinkedList;
 

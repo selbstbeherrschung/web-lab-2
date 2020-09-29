@@ -15,8 +15,6 @@ import java.io.IOException;
 @WebServlet("/control")
 public class ControllerServlet extends HttpServlet {
 
-    @Inject
-    private LIstOfShots sessionShotsBean = new SessionShotsBean();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -39,7 +37,7 @@ public class ControllerServlet extends HttpServlet {
                 double x = Double.parseDouble(xS);
                 double y = Double.parseDouble(yS);
                 double r = Double.parseDouble(rS);
-                if ((x >= -3 && x <= 5) && (y >= -3 && y <= 3) && (r >= 2 && r <= 5)) {
+                if ((x >= -3 && x <= 5) && (y >= -5 && y <= 3) && (r >= 2 && r <= 5)) {
                     path = "/check";
                     requestDispatcher = servletContext.getRequestDispatcher(path);
                     requestDispatcher.forward(request, response);
