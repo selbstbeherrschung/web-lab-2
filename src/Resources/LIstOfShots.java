@@ -1,4 +1,4 @@
-package Resources;
+package resources;
 
 import javax.ejb.Local;
 
@@ -7,5 +7,4 @@ public interface LIstOfShots {
     void addFirst(String shot);
     String writeAll();
     String printAll();
-    void remove();
 }

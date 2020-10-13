@@ -1,5 +1,5 @@
-<%@ page import="Resources.SessionShotsBean" %>
-<%@ page import="Resources.LIstOfShots" %>
+<%@ page import="resources.SessionShotsBean" %>
+<%@ page import="resources.LIstOfShots" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,13 +49,10 @@
             </thead>
             <tbody>
 
-            <%
 
-                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
-                if(shots != null){
-                    out.print(shots.writeAll());
-                }
-            %>
+
+            <jsp:useBean id="sessionShotsBean" scope="session" class="resources.SessionShotsBean"/>
+                ${sessionShotsBean.writeAll()}
 
             </tbody>
 

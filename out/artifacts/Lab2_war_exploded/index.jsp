@@ -86,12 +86,14 @@
                             <polyline points="300,150 285,140 295,150 285,160 300,150" fill="rgb(249,249,249)"
                                       stroke-width="1" stroke="rgb(0,0,0)"/>
 
-                            <%
-                                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
-                                if (shots != null) {
-                                    out.print(shots.printAll());
-                                }
-                            %>
+<%--                            <%--%>
+<%--                                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");--%>
+<%--                                if (shots != null) {--%>
+<%--                                    out.print(shots.printAll());--%>
+<%--                                }--%>
+<%--                            %>--%>
+                            <jsp:useBean id="sessionShotsBean" scope="session" class="Resources.SessionShotsBean"/>
+                                ${sessionShotsBean.printAll()}
 
                         </svg>
                     </div>

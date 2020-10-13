@@ -1,24 +1,21 @@
-import Resources.LIstOfShots;
-import Resources.SessionShotsBean;
+import resources.SessionShotsBean;
 
-import javax.inject.Inject;
-import javax.inject.Scope;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+
 
 
 @WebServlet("/check")
 public class AreaCheckServlet extends HttpServlet {
 
 
-    private LIstOfShots sessionShotsBean;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,14 +33,19 @@ public class AreaCheckServlet extends HttpServlet {
 
         String str = cut(x) + " " + cut(y) + " " + cut(r) + " " + res + " " + start + " " + ((time) / 1000);
 
-        sessionShotsBean = (LIstOfShots) request.getSession().getAttribute("shots");
+//        sessionShotsBean = (LIstOfShots) request.getSession().getAttribute("shots");
+//
+//        if (sessionShotsBean == null) {
+//            request.getSession().setAttribute("shots", new SessionShotsBean());
+//            sessionShotsBean = (LIstOfShots) request.getSession().getAttribute("shots");
+//        }
+//
+//        sessionShotsBean.addFirst(str);
 
-        if (sessionShotsBean == null) {
-            request.getSession().setAttribute("shots", new SessionShotsBean());
-            sessionShotsBean = (LIstOfShots) request.getSession().getAttribute("shots");
+        if (request.getSession().getAttribute("sessionShotsBean")==null){
+            request.getSession().setAttribute("sessionShotsBean", new SessionShotsBean());
         }
-
-        sessionShotsBean.addFirst(str);
+        ((SessionShotsBean)request.getSession().getAttribute("sessionShotsBean")).addFirst(str);
 
         getServletContext().getRequestDispatcher("/pages/result.jsp").forward(request, response);
     }

@@ -21,5 +21,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" exported="" name="jakarta.inject-api-1.0" level="project" />
+    <orderEntry type="library" name="javaee-api-8.0" level="project" />
   </component>
 </module>

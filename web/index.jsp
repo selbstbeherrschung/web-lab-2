@@ -1,5 +1,5 @@
-<%@ page import="Resources.SessionShotsBean" %>
-<%@ page import="Resources.LIstOfShots" %>
+<%@ page import="resources.SessionShotsBean" %>
+<%@ page import="resources.LIstOfShots" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -86,12 +86,8 @@
                             <polyline points="300,150 285,140 295,150 285,160 300,150" fill="rgb(249,249,249)"
                                       stroke-width="1" stroke="rgb(0,0,0)"/>
 
-                            <%
-                                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
-                                if (shots != null) {
-                                    out.print(shots.printAll());
-                                }
-                            %>
+                            <jsp:useBean id="sessionShotsBean" scope="session" class="resources.SessionShotsBean"/>
+                                ${sessionShotsBean.printAll()}
 
                         </svg>
                     </div>

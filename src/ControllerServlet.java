@@ -1,7 +1,5 @@
-import Resources.LIstOfShots;
-import Resources.SessionShotsBean;
+import resources.SessionShotsBean;
 
-import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,6 +22,8 @@ public class ControllerServlet extends HttpServlet {
             shots = new SessionShotsBean();
             hSession.setAttribute("shots", shots);
         }
+
+        request.getCookies()
 
         String xS = request.getParameter("answerX");
         String yS = request.getParameter("answerY");

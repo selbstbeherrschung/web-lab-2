@@ -49,13 +49,16 @@
             </thead>
             <tbody>
 
-            <%
+<%--            <%--%>
 
-                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");
-                if(shots != null){
-                    out.print(shots.writeAll());
-                }
-            %>
+<%--                LIstOfShots shots = (LIstOfShots)request.getSession().getAttribute("shots");--%>
+<%--                if(shots != null){--%>
+<%--                    out.print(shots.writeAll());--%>
+<%--                }--%>
+<%--            %>--%>
+
+            <jsp:useBean id="sessionShotsBean" scope="session" class="Resources.SessionShotsBean"/>
+                ${sessionShotsBean.writeAll()}
 
             </tbody>
 

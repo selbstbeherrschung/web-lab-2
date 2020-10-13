@@ -1,13 +1,10 @@
-package Resources;
+package resources;
 
-import javax.ejb.Remove;
-import javax.ejb.Stateful;
-import javax.ejb.Stateless;
+
 import java.io.Serializable;
 import java.util.LinkedList;
 
 
-@Stateful
 public class SessionShotsBean implements Serializable, LIstOfShots {
 
     private static final long serialVersionUID = 2041275512219239990L;
@@ -74,9 +71,5 @@ public class SessionShotsBean implements Serializable, LIstOfShots {
         return strBuild.toString();
     }
 
-    @Remove
-    public void remove(){
-        shots=null;
-    }
 
 }
