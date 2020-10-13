@@ -1,4 +1,4 @@
-import resources.SessionShotsBean;
+import Resources.SessionShotsBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

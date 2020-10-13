@@ -1,6 +1,4 @@
-<%@ page import="resources.SessionShotsBean" %>
-<%@ page import="resources.LIstOfShots" %>
-
+<%@ page import="Resources.SessionShotsBean" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en">
@@ -11,7 +9,7 @@
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="resources/icon.png">
+    <link rel="icon" type="image/png" href="Resources/icon.png">
     <script src="clientScript/Script.js"></script>
     <link href="styles/styleStart.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -86,7 +84,8 @@
                             <polyline points="300,150 285,140 295,150 285,160 300,150" fill="rgb(249,249,249)"
                                       stroke-width="1" stroke="rgb(0,0,0)"/>
 
-                            <jsp:useBean id="sessionShotsBean" scope="session" class="resources.SessionShotsBean"/>
+
+                            <jsp:useBean id="sessionShotsBean" scope="session" class="Resources.SessionShotsBean"/>
                                 ${sessionShotsBean.printAll()}
 
                         </svg>

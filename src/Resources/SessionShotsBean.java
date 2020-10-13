@@ -1,11 +1,11 @@
-package resources;
+package Resources;
 
 
 import java.io.Serializable;
 import java.util.LinkedList;
 
 
-public class SessionShotsBean implements Serializable, LIstOfShots {
+public class SessionShotsBean implements Serializable {
 
     private static final long serialVersionUID = 2041275512219239990L;
 

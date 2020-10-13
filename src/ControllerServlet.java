@@ -1,4 +1,4 @@
-import resources.SessionShotsBean;
+import Resources.SessionShotsBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -13,6 +13,10 @@ import java.io.IOException;
 @WebServlet("/control")
 public class ControllerServlet extends HttpServlet {
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -23,7 +27,7 @@ public class ControllerServlet extends HttpServlet {
             hSession.setAttribute("shots", shots);
         }
 
-        request.getCookies()
+        request.getCookies();
 
         String xS = request.getParameter("answerX");
         String yS = request.getParameter("answerY");
